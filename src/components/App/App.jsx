@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import Form from 'components/Form';
+import FormPhonebook from 'components/FormPhonebook';
 import { Section, Container, Title } from './App.styled';
 import { nanoid } from 'nanoid';
 
@@ -31,7 +31,7 @@ export class App extends Component {
       <Section>
         <Container>
           <Title>Phonebook</Title>
-        <Form onSubmit={this.addContact}/>
+        <FormPhonebook onSubmit={this.addContact}/>
         <h2>Contacts</h2>
         <ul>
         {this.markupContacts()}

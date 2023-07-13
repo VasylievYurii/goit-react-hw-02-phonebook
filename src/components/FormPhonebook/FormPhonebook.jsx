@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
 import { Formik } from 'formik';
 
-class Form extends Component {
+class FormPhonebook extends Component {
   state = {
     name: '',
     number: '',
@@ -65,4 +65,4 @@ class Form extends Component {
   }
 }
 
-export default Form;
+export default FormPhonebook;
