@@ -1,7 +1,8 @@
 import { Component } from 'react';
 import FormPhonebook from 'components/FormPhonebook';
-import { Section, Container, Title } from './App.styled';
+import { Section, Container, Title, TitleContacts } from './App.styled';
 import { nanoid } from 'nanoid';
+import { Contact } from 'components/ContactCard/ContactCard';
 
 export class App extends Component {
   state = {
@@ -22,7 +23,12 @@ export class App extends Component {
       const id = nanoid();
       console.log("id:", id);
       
-     return <li key={id}>{contact.name} {contact.number}</li>})
+     return <Contact key={id} name={contact.name} number={contact.number}/>})
+    //   <a href="#"> 
+    //   <p>{contact.name} </p>
+    //   <p>{contact.number}</p>
+    //   </a>
+    //  </Contact>})
   }
 
   render() {
@@ -32,7 +38,7 @@ export class App extends Component {
         <Container>
           <Title>Phonebook</Title>
         <FormPhonebook onSubmit={this.addContact}/>
-        <h2>Contacts</h2>
+        {this.state.contacts.length === 0 ? null : <TitleContacts>Contacts</TitleContacts>}
         <ul>
         {this.markupContacts()}
         </ul>
