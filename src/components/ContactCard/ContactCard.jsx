@@ -1,10 +1,13 @@
 import React from 'react';
 
-export const Contact = ({key, name, number}) =>{
-    return (<li key={key}>
-      <a href="#"> 
-      <p>{name} </p>
-      <p>{number}</p>
-      </a>
-     </li>)
+import { ContactList, ContactCard, ContactName, ContactNumber, RiDeleteBinLineSvg} from './ContactCard.styled';
+
+export const Contact = ({ name, number, onClick}) =>{
+    return (<ContactList>
+      <ContactCard href="#" onClick={(e)=>e.preventDefault()}> 
+      <ContactName>{name} </ContactName>
+      <ContactNumber>{number}</ContactNumber>
+      <RiDeleteBinLineSvg onClick={onClick}/>
+      </ContactCard>
+     </ContactList>)
 }

@@ -4,7 +4,7 @@
   --color-main-one:#03045e;
   --color-main-two:#023e8a;
   --color-main-three:#0077b6;
-  /* --color:#0096c7; */
+  --color-contacts:#0096c7;
   /* --color:#00b4d8; */
   --color-accent:#48cae4;
   --color-line-hover:#90e0ef;
@@ -12,6 +12,7 @@
   /* --color-section-one:#caf0f8; */
   --gradient-section:radial-gradient( circle farthest-corner at 10% 20%,  rgba(202, 240, 248, 0.8) 0%, rgba(173, 232, 244, 0.8) 90% );
   --shadow-section:0px 0px 5px rgba(100, 150, 200, 0.9);
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {

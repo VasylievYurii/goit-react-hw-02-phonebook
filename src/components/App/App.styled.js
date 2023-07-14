@@ -9,10 +9,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* gap: 28px; */
   margin: 0 auto;
-  /* padding-bottom: 0.5em; */
-  /* border-radius: 5px; */
   background-image: var(--gradient-section);
   box-shadow: var(--shadow-section);
 `;
@@ -29,16 +26,15 @@ export const Title = styled.h1`
 `;
 
 export const TitleContacts = styled.h2`
-width: 100%;
-text-align: center;
-border-bottom: 2px solid white;
-padding-top: 0.5em;
+  width: 100%;
+  text-align: center;
+  border-bottom: 2px solid white;
+  padding-top: 0.5em;
   padding-bottom: 0.5em;
   background-color: var(--color-accent);
   text-transform: uppercase;
   color: var(--color-main-one);
-`
-export const Contact = styled.li`
-font-size: 20px;
-padding: 0.5em;
-`
+`;
+export const ContactUl = styled.ul`
+  width: 100%;
+`;
