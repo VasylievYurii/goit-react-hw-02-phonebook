@@ -7,7 +7,6 @@ import {
   TitleContacts,
   ContactUl,
 } from './App.styled';
-import { nanoid } from 'nanoid';
 import { Contact } from 'components/ContactCard/ContactCard';
 
 export class App extends Component {
@@ -28,15 +27,14 @@ export class App extends Component {
 
   markupContacts = () => {
     return this.state.contacts.map(contact => {
-      return <Contact key={contact.id} name={contact.name} number={contact.number}  onClick={this.deleteItem}/>;
+      return <Contact key={contact.id} id={contact.id} name={contact.name} number={contact.number}  onDeleteItem={this.deleteItem}/>;
     });
   };
 
-deleteItem =(e) => {
-  if (e.target === e.currentTarget){
-    console.log("e:", e)
-  }
- 
+deleteItem =(contactId) => {
+ this.setState(prevState => ({
+  contacts: prevState.contacts.filter(contact => contact.id !== contactId)
+ }))
   
 }
 
