@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import {RiDeleteBinLine} from 'react-icons/ri';
+import { RiDeleteBinLine } from 'react-icons/ri';
 
 export const ContactList = styled.li`
   display: block;
@@ -11,7 +11,7 @@ export const ContactList = styled.li`
 `;
 
 export const ContactCard = styled.a`
-position: relative;
+  position: relative;
   display: block;
   padding: 0.8em;
   border-radius: 5px;
@@ -50,13 +50,17 @@ export const ContactNumber = styled.p`
   margin-left: auto;
 `;
 export const RiDeleteBinLineSvg = styled(RiDeleteBinLine)`
-position: absolute;
-right:0.2em;
-top:0.2em;
-color:var(--color-main-three);
-background-color: white;
-border-radius: 50%;
-border: 3px solid white;
-width: 14px;
-height: 14px;
-`
+  position: absolute;
+  right: 0.2em;
+  top: 0.2em;
+  color: var(--color-main-three);
+  background-color: white;
+  border-radius: 50%;
+  border: 3px solid white;
+  width: 14px;
+  height: 14px;
+`;
+
+export const ContactUl = styled.ul`
+  width: 100%;
+`;

@@ -1,13 +1,28 @@
 import React from 'react';
 
-import { ContactList, ContactCard, ContactName, ContactNumber, RiDeleteBinLineSvg} from './ContactCard.styled';
+import {
+  ContactList,
+  ContactCard,
+  ContactName,
+  ContactNumber,
+  RiDeleteBinLineSvg,
+  ContactUl,
+} from './ContactCard.styled';
 
-export const Contact = ({ id, name, number, onDeleteItem}) =>{
-    return (<ContactList>
-      <ContactCard href="#" onClick={(e)=>e.preventDefault()}> 
-      <ContactName>{name} </ContactName>
-      <ContactNumber>{number}</ContactNumber>
-      <RiDeleteBinLineSvg onClick={()=>onDeleteItem(id)}/>
-      </ContactCard>
-     </ContactList>)
-}
+export const Contact = ({ array, onDeleteItem }) => {
+  return (
+    <ContactUl>
+      {array.map(contact => {
+        return (
+          <ContactList key={contact.id}>
+            <ContactCard href="#" onClick={e => e.preventDefault()}>
+              <ContactName>{contact.name} </ContactName>
+              <ContactNumber>{contact.number}</ContactNumber>
+              <RiDeleteBinLineSvg onClick={() => onDeleteItem(contact.id)} />
+            </ContactCard>
+          </ContactList>
+        );
+      })}
+    </ContactUl>
+  );
+};

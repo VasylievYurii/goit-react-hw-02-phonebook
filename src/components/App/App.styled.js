@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { DiPhonegap } from 'react-icons/di';
 
 export const Section = styled.section`
   margin: 0 auto;
@@ -15,6 +16,10 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h1`
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: auto;
   text-transform: uppercase;
   color: var(--color-main-one);
   width: 100%;
@@ -35,6 +40,8 @@ export const TitleContacts = styled.h2`
   text-transform: uppercase;
   color: var(--color-main-one);
 `;
-export const ContactUl = styled.ul`
-  width: 100%;
+
+export const DiPhonegapSvg = styled(DiPhonegap)`
+  width: 40px;
+  height: 40px;
 `;
