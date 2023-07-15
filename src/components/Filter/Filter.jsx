@@ -1,5 +1,6 @@
 import React from 'react';
-import {FilterLabel, FilterInput, RiUserSearchLineSvg} from './Filter.styled';
+import PropTypes from 'prop-types';
+import { FilterLabel, FilterInput, RiUserSearchLineSvg } from './Filter.styled';
 
 export const Filter = ({ value, onChange }) => {
   return (
@@ -8,9 +9,14 @@ export const Filter = ({ value, onChange }) => {
         type="text"
         value={value}
         onChange={onChange}
-        placeholder='Name'
+        placeholder="Name"
       />
-      <RiUserSearchLineSvg/>
+      <RiUserSearchLineSvg />
     </FilterLabel>
   );
+};
+
+Filter.propTypes = {
+  value: PropTypes.string,
+  onChange: PropTypes.func,
 };

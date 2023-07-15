@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {
   ContactList,
@@ -13,16 +14,28 @@ export const Contact = ({ array, onDeleteItem }) => {
   return (
     <ContactUl>
       {array.map(contact => {
+        const { id, name, number } = contact;
         return (
-          <ContactList key={contact.id}>
+          <ContactList key={id}>
             <ContactCard href="#" onClick={e => e.preventDefault()}>
-              <ContactName>{contact.name} </ContactName>
-              <ContactNumber>{contact.number}</ContactNumber>
-              <RiDeleteBinLineSvg onClick={() => onDeleteItem(contact.id)} />
+              <ContactName>{name}</ContactName>
+              <ContactNumber>{number}</ContactNumber>
+              <RiDeleteBinLineSvg onClick={() => onDeleteItem(id)} />
             </ContactCard>
           </ContactList>
         );
       })}
     </ContactUl>
   );
+};
+
+Contact.propTypes = {
+  array: PropTypes.arrayOf(
+    PropTypes.exact({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ),
+  onDeleteItem: PropTypes.func,
 };

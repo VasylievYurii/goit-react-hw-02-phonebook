@@ -1,8 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { FormWrapper,Button,LabelForm,ErrorMessageForm,FieldForm } from './FormPhonebook.styled';
+import {
+  FormWrapper,
+  Button,
+  LabelForm,
+  ErrorMessageForm,
+  FieldForm,
+} from './FormPhonebook.styled';
 
 const initialValues = {
   name: '',
@@ -30,7 +37,7 @@ const FormPhonebook = ({ onSubmit }) => {
 
   const handleSubmit = (values, { resetForm }) => {
     const idGen = nanoid();
-    const contact = { id:idGen, ...values};
+    const contact = { id: idGen, ...values };
     onSubmit(contact);
     resetForm();
   };
@@ -49,7 +56,7 @@ const FormPhonebook = ({ onSubmit }) => {
         <LabelForm htmlFor={inputNumberId}>Number</LabelForm>
         <FieldForm type="tel" name="number" id={inputNumberId} required />
         <ErrorMessageForm name="number" component="p" className="error" />
-        
+
         <Button type="submit">Add contact</Button>
       </FormWrapper>
     </Formik>
@@ -57,3 +64,7 @@ const FormPhonebook = ({ onSubmit }) => {
 };
 
 export default FormPhonebook;
+
+FormPhonebook.propTypes = {
+  onSubmit: PropTypes.func,
+};

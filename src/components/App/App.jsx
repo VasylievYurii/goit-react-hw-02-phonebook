@@ -1,6 +1,12 @@
 import { Component } from 'react';
 import FormPhonebook from 'components/FormPhonebook';
-import { Section, Container, Title, TitleContacts, DiPhonegapSvg } from './App.styled';
+import {
+  Section,
+  Container,
+  Title,
+  TitleContacts,
+  DiPhonegapSvg,
+} from './App.styled';
 import { Contact } from 'components/ContactCard/ContactCard';
 import { Filter } from '../Filter/Filter';
 
@@ -32,9 +38,9 @@ export class App extends Component {
   };
 
   render() {
-    const normalizedFilter = this.state.filter.toLowerCase();
-
-    const filteredContacts = this.state.contacts.filter(contact =>
+    const { filter, contacts } = this.state;
+    const normalizedFilter = filter.toLowerCase();
+    const filteredContacts = contacts.filter(contact =>
       contact.name.toLowerCase().includes(normalizedFilter)
     );
 
@@ -42,15 +48,15 @@ export class App extends Component {
       <>
         <Section>
           <Container>
-            <Title><DiPhonegapSvg/>Phonebook</Title>
+            <Title>
+              <DiPhonegapSvg />
+              Phonebook
+            </Title>
             <FormPhonebook onSubmit={this.addContact} />
-            {this.state.contacts.length === 0 ? null : (
+            {contacts.length === 0 ? null : (
               <>
                 <TitleContacts>Contacts</TitleContacts>
-                <Filter
-                  value={this.state.filter}
-                  onChange={this.searchFilter}
-                />
+                <Filter value={filter} onChange={this.searchFilter} />
                 <Contact
                   array={filteredContacts}
                   onDeleteItem={this.deleteItem}
