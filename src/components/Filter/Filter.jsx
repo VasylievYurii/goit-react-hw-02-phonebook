@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FilterLabel, FilterInput, RiUserSearchLineSvg } from './Filter.styled';
 
-export const Filter = ({ value, onChange }) => {
+const Filter = ({ value, onChange }) => {
   return (
     <FilterLabel>
       <FilterInput
@@ -20,3 +20,5 @@ Filter.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func,
 };
+
+export default Filter;

@@ -10,7 +10,7 @@ import {
   ContactUl,
 } from './ContactCard.styled';
 
-export const Contact = ({ array, onDeleteItem }) => {
+const Contact = ({ array, onDeleteItem }) => {
   return (
     <ContactUl>
       {array.map(contact => {
@@ -39,3 +39,5 @@ Contact.propTypes = {
   ),
   onDeleteItem: PropTypes.func,
 };
+
+export default Contact;

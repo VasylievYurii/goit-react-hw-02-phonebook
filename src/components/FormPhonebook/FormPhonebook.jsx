@@ -52,19 +52,17 @@ const FormPhonebook = ({ onSubmit }) => {
         <LabelForm htmlFor={inputNameId}>Name</LabelForm>
         <FieldForm type="text" name="name" id={inputNameId} required />
         <ErrorMessageForm name="name" component="p" className="error" />
-
         <LabelForm htmlFor={inputNumberId}>Number</LabelForm>
         <FieldForm type="tel" name="number" id={inputNumberId} required />
         <ErrorMessageForm name="number" component="p" className="error" />
-
         <Button type="submit">Add contact</Button>
       </FormWrapper>
     </Formik>
   );
 };
 
-export default FormPhonebook;
-
 FormPhonebook.propTypes = {
   onSubmit: PropTypes.func,
 };
+
+export default FormPhonebook;

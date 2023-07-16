@@ -1,5 +1,8 @@
 import { Component } from 'react';
+import Notiflix from 'notiflix';
 import FormPhonebook from 'components/FormPhonebook';
+import Contact from 'components/ContactCard';
+import Filter from 'components/Filter';
 import {
   Section,
   Container,
@@ -7,8 +10,6 @@ import {
   TitleContacts,
   DiPhonegapSvg,
 } from './App.styled';
-import { Contact } from 'components/ContactCard/ContactCard';
-import { Filter } from '../Filter/Filter';
 
 export class App extends Component {
   state = {
@@ -22,9 +23,20 @@ export class App extends Component {
   };
 
   addContact = data => {
-    this.setState(prevState => ({
-      contacts: [data, ...prevState.contacts],
-    }));
+    const normalizedNameFilter = data.name.toLowerCase();
+    const isFoundName = !this.state.contacts.find(contact =>
+      contact.name.toLowerCase().includes(normalizedNameFilter)
+    );
+    const isFoundNumber = !this.state.contacts.find(contact =>
+      contact.number.includes(data.number)
+    );
+    const isFound = isFoundName && isFoundNumber;
+
+    if (isFound) {
+      this.setState(prevState => ({ contacts: [data, ...prevState.contacts] }));
+    } else {
+      Notiflix.Notify.failure(`This contact is already in your contact list.`);
+    }
   };
 
   deleteItem = contactId => {
@@ -40,6 +52,7 @@ export class App extends Component {
   render() {
     const { filter, contacts } = this.state;
     const normalizedFilter = filter.toLowerCase();
+
     const filteredContacts = contacts.filter(contact =>
       contact.name.toLowerCase().includes(normalizedFilter)
     );
