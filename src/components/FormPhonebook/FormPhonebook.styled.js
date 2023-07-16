@@ -48,4 +48,7 @@ export const FieldForm = styled(Field)`
   box-sizing: border-box;
   transition: 0.3s;
   padding-right: 30px;
+  &:focus {
+    box-shadow: 0 0 8px 0 var(--color-contacts);
+  }
 `;
